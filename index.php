@@ -38,42 +38,42 @@
     <div class="registro">
         <form action="registro_usuario" method="POST">
             <div class="registro_nombre">
-                Nombre:
+                Nombre
                 <br/>
                 <input type="text" name="registro_nombre" required placeholder="Nombre">
                 <br/>
             </div>
-            <div>Apellido paterno:
+            <div>Apellido paterno
                 <br/>
                 <input type="text" name="registro_apellidoPaterno" required placeholder="Apellido Paterno">
                 <br/>
             </div>
             <div>
-                Apellido materno:
+                Apellido materno
                 <br/>
                 <input type="text" name="registro_apellidoMaterno" required placeholder="Apellido Materno">
                 <br/>
             </div>
             <div>
-                Telefono:
+                Telefono
                 <br/>
                 <input type="tel" name="registro_telefono" required placeholder="55123456">
                 <br/>
             </div>
             <div>
-                Correo:
+                Correo
                 <br/>
                 <input type="email" name="registro_correo" required placeholder="correo@correo.com">
                 <br/>
             </div>
-            <div>Usuario:
+            <div>Usuario
                 <br/>
-                <input type="text" name="usuario" required placeholder="nombreDeUsuario">
+                <input type="text" name="registro_usuario" required placeholder="nombreDeUsuario">
                 <br/>
             </div>
-            <div>Contraseña:
+            <div>Contraseña
                 <br/>
-                <input type="password" name="password" autocomplete="off" required placeholder="Contraseña">
+                <input type="password" name="registro_contrasenia" autocomplete="off" required placeholder="Contraseña">
                 <br/>
             </div>
             <div>
