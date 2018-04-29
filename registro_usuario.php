@@ -38,7 +38,7 @@ if(!empty($_POST['registro_usuario'])){
 	$usuario = filter_var($_POST['registro_usuario'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 }
 if(validarUsuario($nombre, $apellidoPaterno, $apellidoMaterno, $telefono, $correo, $password, $usuario)){
-	$registro = "insert into prestashop_usuario (nombre,apaterno,amaterno,telefono,correo,contrasenia,usuario) values('$nombre','$apellidoPaterno','$apellidoMaterno','$telefono','$correo', '$password', '$usuario')";
+	$registro = "insert into usuarios (nombre,apaterno,amaterno,telefono,correo,contrasenia,usuario) values('$nombre','$apellidoPaterno','$apellidoMaterno','$telefono','$correo', '$password', '$usuario')";
 	$guarda_registro = consulta($registro);
 	if($guarda_registro == false){
 		echo "Datos ingresados de manera correcta";
