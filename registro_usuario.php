@@ -7,8 +7,8 @@
 <body>
 <?php
 function validarUsuario($nombre, $apellidoPaterno, $apellidoMaterno, $telefono, $correo, $password, $usuario){
-    if(!(empty($_POST['nombre']) || empty($_POST['apellidoPaterno']) || empty($_POST['apellidoMaterno']) ||
-    empty($_POST['usuario']) || empty($_POST['contrasenia']))){
+    if(!(empty($nombre) || !empty($apellidoPaterno) || !empty($apellidoMaterno) ||
+    !empty($usuario) || !empty($contrasenia)){
         return true;
     }
     else{

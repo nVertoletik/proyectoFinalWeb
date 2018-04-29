@@ -36,7 +36,7 @@
 
     <h2>Registro</h2>
     <div class="registro">
-        <form action="registro_usuario" method="POST">
+        <form action="registro_usuario.php" method="POST">
             <div class="registro_nombre">
                 Nombre
                 <br/>
