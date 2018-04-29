@@ -6,8 +6,8 @@
 </head>
 <body>
 <?php
-function validarUsuario($nombre, $apellidoPaterno, $apellidoMaterno, $telefono, $correo, $password, $usuario){
-    if(!(empty($nombre) || !empty($apellidoPaterno) || !empty($apellidoMaterno) ||
+function validarUsuario($nombre, $apellidoPaterno, $apellidoMaterno, $telefono, $correo, $contrasenia, $usuario){
+    if(!(empty($nombre) || !empty($apellidoPaterno) || !empty($apellidoMaterno) || !empty($telefono) || !empty($correo) ||
     !empty($usuario) || !empty($contrasenia)){
         return true;
     }
