@@ -12,7 +12,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us || BOLT Sports Shop</title>
+    <title>Acerca de nosotros || Prestashop recargado</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -57,7 +57,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         <p>Prestashop recargado es un proyecto de E-Commerce. Todos los productos listados son falsos.Este proyecto muestra la funcionalidad de un sitio de E-Commerce.</p>
 
         <footer>
-           <p style="text-align:center; font-size:0.8em;">&copy; Prestashop. Todos los derechos reservados.</p>
+           <p style="text-align:center; font-size:0.8em;">&copy;Prestashop. Todos los derechos reservados.</p>
         </footer>
 
       </div>
