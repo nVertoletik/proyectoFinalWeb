@@ -9,11 +9,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Prestashop recargado</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
 
 </head>
 
 <body>
-    <h1>Prestashop recargado</h1>
+<nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="index.php">Prestashop recargado</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+      <!-- Right Nav Section -->
+        <ul class="right">
+        <li><a href="acerca.php">Acerca de nosotros</a></li>
+          <li><a href="productos.php">Productos</a></li>
+          <li><a href="carrito.php">Carrito</a></li>
+          <li><a href="ordenes.php">Mis Ordenes</a></li>
+          <li><a href="contacto.php">Contacto</a></li>
     <h2>Inicia sesión</h2>
     <div class="inicio_sesion">
         <form action="inicio_sesion.php" method="post">
