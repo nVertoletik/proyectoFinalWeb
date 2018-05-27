@@ -1,8 +1,12 @@
 <?php
+
+if(session_id() == '' || !isset($_SESSION)){session_start();}
+
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" class="no-js">
 
 <head>
     <meta charset="utf-8" />
@@ -11,6 +15,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
 
 </head>
 
@@ -31,9 +40,18 @@
           <li><a href="carrito.php">Carrito</a></li>
           <li><a href="ordenes.php">Mis Ordenes</a></li>
           <li><a href="contacto.php">Contacto</a></li>
+          <?php
+                    if(isset($_SESSION['username'])){
+                        echo '<li><a href="cuenta.php">Mi Cuenta</a></li>';
+                        echo '<li><a href="cerrar_sesion.php">Cerrar sesion</a></li>';
+                      }
+                      ?>
+          </ul>
+          </section>
+          </nav>
     <h2>Inicia sesión</h2>
     <div class="inicio_sesion">
-        <form action="inicio_sesion.php" method="post">
+        <form action="verificar.php" method="post">
             <div class="inicio_usuario">
                 Usuario
                 <br/>
