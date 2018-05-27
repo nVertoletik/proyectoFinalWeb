@@ -51,7 +51,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
           </nav>
     <h2>Inicia sesión</h2>
     <div class="inicio_sesion">
-        <form action="verificar.php" method="post">
+        <form action="verificar.php" method="POST">
             <div class="inicio_usuario">
                 Usuario
                 <br/>
