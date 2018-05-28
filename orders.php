@@ -3,6 +3,10 @@
 //if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
+if(!isset($_SESSION["username"])){
+  header("location:index.php");
+}
+include 'config.php';
 ?>
 
 <!doctype html>
@@ -10,7 +14,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BOLT Sports Shop</title>
+    <title>My Orders || BOLT Sports Shop</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -30,7 +34,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
           <li><a href="about.php">About</a></li>
           <li><a href="products.php">Products</a></li>
           <li><a href="cart.php">View Cart</a></li>
-          <li><a href="orders.php">My Orders</a></li>
+          <li class="active"><a href="orders.php">My Orders</a></li>
           <li><a href="contact.php">Contact</a></li>
           <?php
 
@@ -50,8 +54,37 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 
 
-    <img data-interchange="[images/bolt-retina.jpg, (retina)], [images/bolt-landscape.jpg, (large)], [images/bolt-mobile.jpg, (mobile)], [images/bolt-landscape.jpg, (medium)]">
-    <noscript><img src="images/bolt-landscape.jpg"></noscript>
+    <div class="row" style="margin-top:10px;">
+      <div class="large-12">
+        <h3>My COD Orders</h3>
+        <hr>
+
+        <?php
+          $user = $_SESSION["username"];
+          $result = $mysqli->query("SELECT * from orders where email='".$user."'");
+          if($result) {
+            while($obj = $result->fetch_object()) {
+              //echo '<div class="large-6">';
+              echo '<p><h4>Order ID ->'.$obj->id.'</h4></p>';
+              echo '<p><strong>Date of Purchase</strong>: '.$obj->date.'</p>';
+              echo '<p><strong>Product Code</strong>: '.$obj->product_code.'</p>';
+              echo '<p><strong>Product Name</strong>: '.$obj->product_name.'</p>';
+              echo '<p><strong>Price Per Unit</strong>: '.$obj->price.'</p>';
+              echo '<p><strong>Units Bought</strong>: '.$obj->units.'</p>';
+              echo '<p><strong>Total Cost</strong>: '.$currency.$obj->total.'</p>';
+              //echo '</div>';
+              //echo '<div class="large-6">';
+              //echo '<img src="images/products/sports_band.jpg">';
+              //echo '</div>';
+              echo '<p><hr></p>';
+
+            }
+          }
+        ?>
+      </div>
+    </div>
+
+
 
 
     <div class="row" style="margin-top:10px;">

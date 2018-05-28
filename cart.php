@@ -13,7 +13,7 @@ include 'config.php';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carrito || Prestashop recargado</title>
+    <title>Shopping Cart || BOLT Sports Shop</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -22,7 +22,7 @@ include 'config.php';
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="index.php">Prestashop recargado</a></h1>
+          <h1><a href="index.php">BOLT Sports Shop</a></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
@@ -30,21 +30,21 @@ include 'config.php';
       <section class="top-bar-section">
       <!-- Right Nav Section -->
         <ul class="right">
-        <li><a href="acerca.php">Acerca de nosotros</a></li>
-          <li><a href="productos.php">Productos</a></li>
-          <li><a href="carrito.php">Carrito</a></li>
-          <li><a href="ordenes.php">Mis Ordenes</a></li>
-          <li><a href="contacto.php">Contacto</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="products.php">Products</a></li>
+          <li class="active"><a href="cart.php">View Cart</a></li>
+          <li><a href="orders.php">My Orders</a></li>
+          <li><a href="contact.php">Contact</a></li>
           <?php
 
-if(isset($_SESSION['username'])){
-  echo '<li><a href="account.php">Mi Cuenta</a></li>';
-  echo '<li><a href="logout.php">Cerrar sesion</a></li>';
-}
-else{
-  echo '<li><a href="login.php">Iniciar sesion</a></li>';
-  echo '<li><a href="register.php">Registrarse</a></li>';
-}
+          if(isset($_SESSION['username'])){
+            echo '<li><a href="account.php">My Account</a></li>';
+            echo '<li><a href="logout.php">Log Out</a></li>';
+          }
+          else{
+            echo '<li><a href="login.php">Log In</a></li>';
+            echo '<li><a href="register.php">Register</a></li>';
+          }
           ?>
         </ul>
       </section>
@@ -57,7 +57,7 @@ else{
       <div class="large-12">
         <?php
 
-          echo '<p><h3>Tu Carrito</h3></p>';
+          echo '<p><h3>Your Shopping Cart</h3></p>';
 
           if(isset($_SESSION['cart'])) {
 
@@ -99,7 +99,7 @@ else{
           echo '</tr>';
 
           echo '<tr>';
-          echo '<td colspan="4" align="right"><a href="update-cart.php?action=empty" class="button alert">Carrito vacio</a>&nbsp;<a href="products.php" class="button [secondary success alert]">Continuar comprando</a>';
+          echo '<td colspan="4" align="right"><a href="update-cart.php?action=empty" class="button alert">Empty Cart</a>&nbsp;<a href="products.php" class="button [secondary success alert]">Continue Shopping</a>';
           if(isset($_SESSION['username'])) {
             echo '<a href="orders-update.php"><button style="float:right;">COD</button></a>';
           }
@@ -115,7 +115,7 @@ else{
         }
 
         else {
-          echo "No tienes productos en tu carrito.";
+          echo "You have no items in your shopping cart.";
         }
 
 
@@ -135,7 +135,7 @@ else{
 
 
         <footer style="margin-top:10px;">
-           <p style="text-align:center; font-size:0.8em;clear:both;">&copy; Prestashop. Todos los derechos reservados.</p>
+           <p style="text-align:center; font-size:0.8em;clear:both;">&copy; BOLT Sports Shop. All Rights Reserved.</p>
         </footer>
 
       </div>

@@ -3,6 +3,11 @@
 //if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
+if(isset($_SESSION["username"])){
+
+        header("location:index.php");
+}
+
 ?>
 
 <!doctype html>
@@ -10,7 +15,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BOLT Sports Shop</title>
+    <title>Login || BOLT Sports Shop</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -39,7 +44,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
             echo '<li><a href="logout.php">Log Out</a></li>';
           }
           else{
-            echo '<li><a href="login.php">Log In</a></li>';
+            echo '<li class="active"><a href="login.php">Log In</a></li>';
             echo '<li><a href="register.php">Register</a></li>';
           }
           ?>
@@ -50,20 +55,51 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 
 
-    <img data-interchange="[images/bolt-retina.jpg, (retina)], [images/bolt-landscape.jpg, (large)], [images/bolt-mobile.jpg, (mobile)], [images/bolt-landscape.jpg, (medium)]">
-    <noscript><img src="images/bolt-landscape.jpg"></noscript>
+
+    <form method="POST" action="verify.php" style="margin-top:30px;">
+      <div class="row">
+        <div class="small-8">
+
+          <div class="row">
+            <div class="small-4 columns">
+              <label for="right-label" class="right inline">Email</label>
+            </div>
+            <div class="small-8 columns">
+              <input type="email" id="right-label" placeholder="nayantronix@gmail.com" name="username">
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-4 columns">
+              <label for="right-label" class="right inline">Password</label>
+            </div>
+            <div class="small-8 columns">
+              <input type="password" id="right-label" name="pwd">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="small-4 columns">
+
+            </div>
+            <div class="small-8 columns">
+              <input type="submit" id="right-label" value="Login" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
+              <input type="reset" id="right-label" value="Reset" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
 
 
     <div class="row" style="margin-top:10px;">
       <div class="small-12">
 
-        <footer style="margin-top:10px;">
+        <footer>
            <p style="text-align:center; font-size:0.8em;">&copy; BOLT Sports Shop. All Rights Reserved.</p>
         </footer>
 
       </div>
     </div>
-
 
 
 

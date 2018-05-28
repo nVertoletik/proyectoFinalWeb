@@ -50,12 +50,11 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 
 
-    <img data-interchange="[images/bolt-retina.jpg, (retina)], [images/bolt-landscape.jpg, (large)], [images/bolt-mobile.jpg, (mobile)], [images/bolt-landscape.jpg, (medium)]">
-    <noscript><img src="images/bolt-landscape.jpg"></noscript>
-
-
     <div class="row" style="margin-top:10px;">
       <div class="small-12">
+        <p>Success. Whatever task you performed, has been executed successfully. Congrats!</p>
+        <p>In case you purchased a product, then please check your spam in email for the receipt.</p>
+
 
         <footer style="margin-top:10px;">
            <p style="text-align:center; font-size:0.8em;">&copy; BOLT Sports Shop. All Rights Reserved.</p>
