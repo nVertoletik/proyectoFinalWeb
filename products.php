@@ -71,7 +71,7 @@ include 'config.php';
 
 
 
-              if($result[i]['qty'] > 0){
+              if($result[$i]['qty'] > 0){
                 echo '<p><a href="update-cart.php?action=add&id='.$result[$i]['id'].'"><input type="submit" value="Agregar producto" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
               }
               else {

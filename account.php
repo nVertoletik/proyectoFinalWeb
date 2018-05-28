@@ -1,7 +1,4 @@
 <?php
-
-//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();} for php 5.4 and above
-
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 if(!isset($_SESSION["username"])) {
@@ -85,13 +82,11 @@ include 'config.php';
             <div class="small-8 columns end">
               <?php
               include 'config.php';
-                $result = consulta('SELECT * FROM users WHERE id='.$_SESSION['id']);
+                $result = consulta('SELECT fname,lname,address,city,pin,email,password  FROM users WHERE id='.$_SESSION['id']);
 
-                if($result === FALSE){
+                if($result == FALSE){
                   echo "Ocurrió un error al consultar la base de datos."
-                }
-
-                if($result) {
+                }else{
                   echo '<input type="text" id="right-label" placeholder="'.$resultado[0]['fname']. '" name="fname">';
 
                   echo '</div>';
