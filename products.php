@@ -52,17 +52,14 @@ include 'config.php';
     <div class="row" style="margin-top:10px;">
       <div class="small-12">
         <?php
-          $i=0;
           $product_id = array();
-          $product_quantity = array();
 
-          $result = consulta('SELECT * FROM products');
+          $result = consulta('SELECT product_img_name, product_code, product_desc, qty, price FROM products');
           if($result == FALSE){
 		echo "Ocurrio un error al mostrar los productos";
           }
-
-          if($result){
-            while(i < sizeof($result)) {
+          else{
+            for($i=0; $i < sizeof($result); $i++) {
 
               echo '<div class="large-4 columns">';
               echo '<p><h3>'.$obj->product_name.'</h3></p>';
@@ -82,7 +79,6 @@ include 'config.php';
               }
               echo '</div>';
 
-              $i++;
             }
 
           }
