@@ -26,20 +26,20 @@ include 'config.php';
 
       <section class="top-bar-section">
         <ul class="right">
-          <li><a href="about.php">About</a></li>
-          <li class='active'><a href="products.php">Products</a></li>
-          <li><a href="cart.php">View Cart</a></li>
-          <li><a href="orders.php">My Orders</a></li>
-          <li><a href="contact.php">Contact</a></li>
+        <li><a href="about.php">Acerca</a></li>
+          <li class="active"><a href="products.php">Productos</a></li>
+          <li><a href="cart.php">Carrito</a></li>
+          <li><a href="orders.php">Mis Ordenes</a></li>
+          <li><a href="contact.php">Contacto</a></li>
           <?php
 
           if(isset($_SESSION['username'])){
-            echo '<li><a href="account.php">My Account</a></li>';
-            echo '<li><a href="logout.php">Log Out</a></li>';
+            echo '<li><a href="account.php">Mi Cuenta</a></li>';
+            echo '<li><a href="logout.php">Cerrar sesión</a></li>';
           }
           else{
-            echo '<li><a href="login.php">Log In</a></li>';
-            echo '<li><a href="register.php">Register</a></li>';
+            echo '<li><a href="login.php">Iniciar sesión</a></li>';
+            echo '<li><a href="register.php">Registrar</a></li>';
           }
           ?>
         </ul>
@@ -57,9 +57,8 @@ include 'config.php';
           $product_quantity = array();
 
           $result = consulta('SELECT * FROM products');
-          if($result === FALSE){
+          if($result == FALSE){
 		echo "Ocurrio un error al mostrar los productos";
-echo sizeof(result);
           }
 
           if($result){
@@ -67,16 +66,16 @@ echo sizeof(result);
 
               echo '<div class="large-4 columns">';
               echo '<p><h3>'.$obj->product_name.'</h3></p>';
-              echo '<img src="images/products/'.$result[i]['product_img_name'].'"/>';
-              echo '<p><strong>Product Code</strong>: '.$result[i]['product_code'].'</p>';
-              echo '<p><strong>Description</strong>: '.$result[i]['product_desc'].'</p>';
-              echo '<p><strong>Units Available</strong>: '.$result[i]['qty'].'</p>';
-              echo '<p><strong>Price (Per Unit)</strong>: '.$currency.$result[i]['price'].'</p>';
+              echo '<img src="images/products/'.$result[$i]['product_img_name'].'"/>';
+              echo '<p><strong>Product Code</strong>: '.$result[$i]['product_code'].'</p>';
+              echo '<p><strong>Description</strong>: '.$result[$i]['product_desc'].'</p>';
+              echo '<p><strong>Units Available</strong>: '.$result[$i]['qty'].'</p>';
+              echo '<p><strong>Price (Per Unit)</strong>: '.$result[$i]['price'].'</p>';
 
 
 
               if($result[i]['qty'] > 0){
-                echo '<p><a href="update-cart.php?action=add&id='.$result[i]['id'].'"><input type="submit" value="Add To Cart" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
+                echo '<p><a href="update-cart.php?action=add&id='.$result[$i]['id'].'"><input type="submit" value="Agregar producto" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
               }
               else {
                 echo 'Out Of Stock!';
@@ -102,7 +101,7 @@ echo sizeof(result);
 
 
         <footer style="margin-top:10px;">
-           <p style="text-align:center; font-size:0.8em;clear:both;">&copy; BOLT Sports Shop. All Rights Reserved.</p>
+        <p style="text-align:center; font-size:0.8em;">&copy;Prestashop recargado. Todos los derechos reservados.</p>
         </footer>
 
       </div>

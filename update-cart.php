@@ -1,6 +1,4 @@
 <?php
-
-//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 include 'config.php';
@@ -12,7 +10,7 @@ $action = $_GET['action'];
 if($action === 'empty')
   unset($_SESSION['cart']);
 
-$result = $mysqli->query("SELECT qty FROM products WHERE id = ".$product_id);
+$result = consulta("SELECT qty FROM products WHERE id = ".$product_id);
 
 
 if($result){
@@ -22,7 +20,7 @@ if($result){
     switch($action) {
 
       case "add":
-      if($_SESSION['cart'][$product_id]+1 <= $obj->qty)
+      if($_SESSION['cart'][$product_id]+1 <= $result[0]['qty'])
         $_SESSION['cart'][$product_id]++;
       break;
 
