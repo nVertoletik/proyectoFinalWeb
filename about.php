@@ -1,7 +1,4 @@
 <?php
-
-//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();} for php 5.4 and above
-
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 
@@ -12,7 +9,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us || BOLT Sports Shop</title>
+    <title>Acerca de nosotros || Prestashop recargado</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -21,7 +18,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="index.php">BOLT Sports Shop</a></h1>
+          <h1><a href="index.php">Prestashop recargado</a></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
@@ -29,20 +26,20 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
       <section class="top-bar-section">
       <!-- Right Nav Section -->
         <ul class="right">
-          <li class="active"><a href="about.php">About</a></li>
-          <li><a href="products.php">Products</a></li>
-          <li><a href="cart.php">View Cart</a></li>
-          <li><a href="orders.php">My Orders</a></li>
-          <li><a href="contact.php">Contact</a></li>
+          <li class="active"><a href="about.php">Acerca</a></li>
+          <li><a href="products.php">Productos</a></li>
+          <li><a href="cart.php">Carrito</a></li>
+          <li><a href="orders.php">Mis Ordeness</a></li>
+          <li><a href="contact.php">Contacto</a></li>
           <?php
     
           if(isset($_SESSION['username'])){
-            echo '<li><a href="account.php">My Account</a></li>';
-            echo '<li><a href="logout.php">Log Out</a></li>';
+            echo '<li><a href="account.php">Mi cuenta</a></li>';
+            echo '<li><a href="logout.php">Cerrar sesión</a></li>';
           }
           else{
-            echo '<li><a href="login.php">Log In</a></li>';
-            echo '<li><a href="register.php">Register</a></li>';
+            echo '<li><a href="login.php">Iniciar sesión</a></li>';
+            echo '<li><a href="register.php">Registrar</a></li>';
           }
           ?>
         </ul>
@@ -54,13 +51,10 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
     <div class="row" style="margin-top:30px;">
       <div class="small-12">
-        <p>BOLT Sports Shop is a project on E-Commerce Website. All products listed are fake. This project just gives a preview to what a real world implementation of E-Commerce Website will look like. Well if you do like the website then visit
-        <a href="http://www.techbarrack.com" target="_blank" title="Tech Barrack Solutions">Tech Barrack Solutions</a>.</p>
-
-        <p>Why BOLT? I am a big fan of Usain Bolt. He is diligent and tries to surpass his previous achievements. And lastly, it was an instant thought. So went for it.</p>
+        <p>Prestashop recargado es un proyecto escolar de E-Commerce. Todos los productos son ficticios.
 
         <footer>
-           <p style="text-align:center; font-size:0.8em;">&copy; BOLT Sports Shop. All Rights Reserved.</p>
+        <p style="text-align:center; font-size:0.8em;">&copy;Prestashop recargado. Todos los derechos reservados.</p>
         </footer>
 
       </div>

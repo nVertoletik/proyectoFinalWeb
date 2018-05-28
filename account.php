@@ -23,7 +23,7 @@ include 'config.php';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Account || BOLT Sports Shop</title>
+    <title>Mi cuenta || Prestashop recargado</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -32,7 +32,7 @@ include 'config.php';
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="index.php">BOLT Sports Shop</a></h1>
+          <h1><a href="index.php">Inicio</a></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
@@ -40,20 +40,20 @@ include 'config.php';
       <section class="top-bar-section">
       <!-- Right Nav Section -->
         <ul class="right">
-          <li><a href="about.php">About</a></li>
-          <li><a href="products.php">Products</a></li>
-          <li><a href="cart.php">View Cart</a></li>
-          <li><a href="orders.php">My Orders</a></li>
-          <li><a href="contact.php">Contact</a></li>
+        <li class="active"><a href="about.php">Acerca</a></li>
+          <li><a href="products.php">Productos</a></li>
+          <li><a href="cart.php">Carrito</a></li>
+          <li><a href="orders.php">Mis Ordeness</a></li>
+          <li><a href="contact.php">Contacto</a></li>
           <?php
 
           if(isset($_SESSION['username'])){
-            echo '<li class="active"><a href="account.php">My Account</a></li>';
-            echo '<li><a href="logout.php">Log Out</a></li>';
+            echo '<li class="active"><a href="account.php">Mi cuenta</a></li>';
+            echo '<li><a href="logout.php">Cerrar sesión</a></li>';
           }
           else{
-            echo '<li><a href="login.php">Log In</a></li>';
-            echo '<li><a href="register.php">Register</a></li>';
+            echo '<li><a href="login.php">Iniciar sesión</a></li>';
+            echo '<li><a href="register.php">Registrar</a></li>';
           }
           ?>
         </ul>
@@ -67,9 +67,9 @@ include 'config.php';
       <div class="small-12">
         <p><?php echo '<h3>Hi ' .$_SESSION['fname'] .'</h3>'; ?></p>
 
-        <p><h4>Account Details</h4></p>
+        <p><h4>Detalles de la cuenta</h4></p>
 
-        <p>Below are your details in the database. If you wish to change anything, then just enter new data in text box and click on update.</p>
+        <p>Se muestran tus datos registrados en la base de datos.Si deseas actualizarlos ponlos en el campo</p>
       </div>
     </div>
 
@@ -80,41 +80,40 @@ include 'config.php';
 
           <div class="row">
             <div class="small-3 columns">
-              <label for="right-label" class="right inline">First Name</label>
+              <label for="right-label" class="right inline">Nombre</label>
             </div>
             <div class="small-8 columns end">
               <?php
-
-                $result = $mysqli->query('SELECT * FROM users WHERE id='.$_SESSION['id']);
+              include 'config.php';
+                $result = consulta('SELECT * FROM users WHERE id='.$_SESSION['id']);
 
                 if($result === FALSE){
-                  die(mysql_error());
+                  echo "Ocurrió un error al consultar la base de datos."
                 }
 
                 if($result) {
-                  $obj = $result->fetch_object();
-                  echo '<input type="text" id="right-label" placeholder="'. $obj->fname. '" name="fname">';
+                  echo '<input type="text" id="right-label" placeholder="'.$resultado[0]['fname']. '" name="fname">';
 
                   echo '</div>';
                     echo '</div>';
 
                   echo '<div class="row">';
                   echo '<div class="small-3 columns">';
-                  echo '<label for="right-label" class="right inline">Last Name</label>';
+                  echo '<label for="right-label" class="right inline">Apellido</label>';
                   echo '</div>';
                   echo '<div class="small-8 columns end">';
 
-                  echo '<input type="text" id="right-label" placeholder="'. $obj->lname. '" name="lname">';
+                  echo '<input type="text" id="right-label" placeholder="'. $resultado[0]['lname']. '" name="lname">';
 
                   echo '</div>';
                   echo '</div>';
 
                   echo '<div class="row">';
                   echo '<div class="small-3 columns">';
-                  echo '<label for="right-label" class="right inline">Address</label>';
+                  echo '<label for="right-label" class="right inline">Dirección</label>';
                   echo '</div>';
                   echo '<div class="small-8 columns end">';
-                  echo '<input type="text" id="right-label" placeholder="'. $obj->address. '" name="address">';
+                  echo '<input type="text" id="right-label" placeholder="'. $resultado[0]['address']. '" name="address">';
 
 
 
@@ -123,20 +122,20 @@ include 'config.php';
 
                   echo '<div class="row">';
                   echo '<div class="small-3 columns">';
-                  echo '<label for="right-label" class="right inline">City</label>';
+                  echo '<label for="right-label" class="right inline">Ciudad</label>';
                   echo '</div>';
                   echo '<div class="small-8 columns end">';
-                  echo '<input type="text" id="right-label" placeholder="'. $obj->city. '" name="city">';
+                  echo '<input type="text" id="right-label" placeholder="'. $resultado[0]['city']. '" name="city">';
                   echo '</div>';
                   echo '</div>';
 
                   echo '<div class="row">';
                   echo '<div class="small-3 columns">';
-                  echo '<label for="right-label" class="right inline">Pin Code</label>';
+                  echo '<label for="right-label" class="right inline">Código POstal</label>';
                   echo '</div>';
                   echo '<div class="small-8 columns end">';
 
-                  echo '<input type="text" id="right-label" placeholder="'. $obj->pin. '" name="pin">';
+                  echo '<input type="text" id="right-label" placeholder="'. $resultado[0]['pin']. '" name="pin">';
 
                   echo '</div>';
                   echo '</div>';
@@ -149,7 +148,7 @@ include 'config.php';
                   echo '<div class="small-8 columns end">';
 
 
-                  echo '<input type="email" id="right-label" placeholder="'. $obj->email. '" name="email">';
+                  echo '<input type="email" id="right-label" placeholder="'. $resultado[0]['email']. '" name="email">';
 
                   echo '</div>';
                   echo '</div>';
@@ -159,7 +158,7 @@ include 'config.php';
 
               echo '<div class="row">';
               echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Password</label>';
+              echo '<label for="right-label" class="right inline">Contraseña</label>';
               echo '</div>';
               echo '<div class="small-8 columns end">';
               echo '<input type="password" id="right-label" name="pwd">';
@@ -173,8 +172,8 @@ include 'config.php';
 
             </div>
             <div class="small-8 columns">
-              <input type="submit" id="right-label" value="Update" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
-              <input type="reset" id="right-label" value="Reset" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
+              <input type="submit" id="right-label" value="Actualizar" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
+              <input type="reset" id="right-label" value="Limpiar" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
             </div>
           </div>
         </div>
@@ -187,7 +186,7 @@ include 'config.php';
       <div class="small-12">
 
         <footer>
-           <p style="text-align:center; font-size:0.8em;">&copy; BOLT Sports Shop. All Rights Reserved.</p>
+        <p style="text-align:center; font-size:0.8em;">&copy;Prestashop recargado. Todos los derechos reservados.</p>
         </footer>
 
       </div>
