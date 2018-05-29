@@ -64,10 +64,10 @@ include 'config.php';
               echo '<div class="large-4 columns">';
               echo '<p><h3>'.$obj->product_name.'</h3></p>';
               echo '<img src="images/products/'.$result[$i]['product_img_name'].'"/>';
-              echo '<p><strong>Product Code</strong>: '.$result[$i]['product_code'].'</p>';
-              echo '<p><strong>Description</strong>: '.$result[$i]['product_desc'].'</p>';
-              echo '<p><strong>Units Available</strong>: '.$result[$i]['qty'].'</p>';
-              echo '<p><strong>Price (Per Unit)</strong>: '.$result[$i]['price'].'</p>';
+              echo '<p><strong>Código</strong>: '.$result[$i]['product_code'].'</p>';
+              echo '<p><strong>Descripcion</strong>: '.$result[$i]['product_desc'].'</p>';
+              echo '<p><strong>Unidades disponibles</strong>: '.$result[$i]['qty'].'</p>';
+              echo '<p><strong>Precio por unidad</strong>: '.$result[$i]['price'].'</p>';
 
 
 
