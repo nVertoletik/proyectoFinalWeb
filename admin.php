@@ -61,12 +61,12 @@ include 'config.php';
       <div class="large-12">
         <h3>Holi Admin!</h3>
         <?php
-        inclue "config.php";
+        include "config.php";
           $result = consulta("SELECT * from products order by id asc");
-          if($result) {
-            while($obj = $result->fetch_object()) {
+          if($result != FALSE) {
+            for($i =0;$i < sizeof($result);$i++) {
               echo '<div class="large-4 columns">';
-              echo '<p><h3>'.$obj->product_name.'</h3></p>';
+              echo '<p><h3>'.$result[$i]['product_name'].'</h3></p>';
               echo '<img src="images/products/'.$result[$i]['product_img_name'].'"/>';
               echo '<p><strong>Product Code</strong>: '.$result[$i]['product_code'].'</p>';
               echo '<p><strong>Description</strong>: '.$result[$i]['product_desc'].'</p>';

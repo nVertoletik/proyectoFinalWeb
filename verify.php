@@ -17,7 +17,7 @@ if($result === FALSE){
 
 if($result){
 $row = $result;
-    if($row[0]['email'] == $username && $row[0]['password'] == $password) {
+    if($row[0]['email'] == $username && $row[0]['password'] == md5($password)) {
 
       $_SESSION['username'] = $username;
       $_SESSION['type'] = $row['type'];

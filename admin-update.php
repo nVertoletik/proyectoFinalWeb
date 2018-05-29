@@ -17,20 +17,18 @@ $result = consulta("SELECT * FROM products ORDER BY id asc");
 $i=0;
 $x=1;
 
-if($result) {
-  while($obj = $result->fetch_object()) {
+if($result != FALSE) {
+  for(;$i <sizeof($result); $i++) {
     if(empty($_SESSION["products_id"][$i])) {
-      $i++;
       $x++;
     }
     else {
-      $newqty = $obj->qty + $_SESSION["products_id"][$i];
-      if($newqty < 0) $newqty = 0; //So, Qty will not be in negative.
+      $newqty = $result[$i]['qty'] + $_SESSION["products_id"][$i];
+      if($newqty < 0) $newqty = 0;
       $update = consulta("UPDATE products SET qty =".$newqty." WHERE id =".$x);
       if($update)
         echo 'Data Updated';
 
-      $i++;
       $x++;
     }
   }

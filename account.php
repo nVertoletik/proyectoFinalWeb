@@ -35,7 +35,6 @@ include 'config.php';
       </ul>
 
       <section class="top-bar-section">
-      <!-- Right Nav Section -->
         <ul class="right">
         <li class="active"><a href="about.php">Acerca</a></li>
           <li><a href="products.php">Productos</a></li>

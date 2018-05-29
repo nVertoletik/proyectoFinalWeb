@@ -73,15 +73,15 @@ include 'config.php';
             $result = consulta("SELECT product_code, product_name, product_desc, qty, price FROM products WHERE id = ".$product_id);
 
 
-            if($result){
+            if($result!=FALSE){
 
-              while($obj = $result->fetch_object()) {
-                $cost = $resultado[0]['price'] * $quantity; //work out the line cost
+              for($i=0; $i<sizeof($result);$i++) {
+                $cost = $resultado[$i]['price'] * $quantity; //work out the line cost
                 $total = $total + $cost; //add to the total cost
 
                 echo '<tr>';
-                echo '<td>'.$resultado[0]['product_code'].'</td>';
-                echo '<td>'.$resultado[0]['product_name'].'</td>';
+                echo '<td>'.$resultado[$i]['product_code'].'</td>';
+                echo '<td>'.$resultado[$i]['product_name'].'</td>';
                 echo '<td>'.$quantity.'&nbsp;<a class="button [secondary success alert]" style="padding:5px;" href="update-cart.php?action=add&id='.$product_id.'">+</a>&nbsp;<a class="button alert" style="padding:5px;" href="update-cart.php?action=remove&id='.$product_id.'">-</a></td>';
                 echo '<td>'.$cost.'</td>';
                 echo '</tr>';

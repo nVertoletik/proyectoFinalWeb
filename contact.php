@@ -53,7 +53,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <div class="row" style="margin-top:30px;">
       <div class="small-12">
 
-        <p>Manda un correo<a href="mailto:soporte@prestashopRecargado.com">soporte@prestashopRecargado.com</a></p>
+        <p>Manda un correo a <a href="mailto:soporte@prestashopRecargado.com">soporte@prestashopRecargado.com</a></p>
 
         <footer>
         <p style="text-align:center; font-size:0.8em;">&copy;Prestashop recargado. Todos los derechos reservados.</p>
