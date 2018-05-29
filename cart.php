@@ -55,7 +55,7 @@ include 'config.php';
     <div class="row" style="margin-top:10px;">
       <div class="large-12">
         <?php
-        inclue "config.php";
+        include "config.php";
           echo '<p><h3>Mi Carrito</h3></p>';
 
           if(isset($_SESSION['cart'])) {
